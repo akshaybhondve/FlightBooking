@@ -1,0 +1,25 @@
+{
+  "airlines": [
+    {
+      "airlineLogo": "AirIndia.png",
+      "airlineName": "Air India",
+      "airlineContact": "02076787989",
+      "airlineAddress": "Chennai",
+      "id": 1
+    },
+    {
+      "airlineLogo": "IndiGO.png",
+      "airlineName": "IndiGO",
+      "airlineContact": "0206434557",
+      "airlineAddress": "Mumbai",
+      "id": 2
+    },
+    {
+      "airlineLogo": "IndiGO",
+      "airlineName": "IndiGo1",
+      "airlineContact": "8499377333",
+      "airlineAddress": "Mumbai",
+      "id": 3
+    }
+  ]
+}
