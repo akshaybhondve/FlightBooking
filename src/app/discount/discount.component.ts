@@ -27,4 +27,12 @@ export class DiscountComponent implements OnInit {
       alert(error.message);
     });
   }
+
+  clearForm(){
+    this.discount.discountCode='';
+    this.discount.discountPercentage=0;
+  }
+
+  
+
 }

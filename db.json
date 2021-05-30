@@ -45,6 +45,11 @@
       "discountCode": "DISC",
       "discountPercentage": 5,
       "id": 1
+    },
+    {
+      "discountCode": "",
+      "discountPercentage": 9,
+      "id": 2
     }
   ]
 }
