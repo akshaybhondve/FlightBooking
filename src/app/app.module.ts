@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { AddAirlineComponent } from './add-airline/add-airline.component';
 import { ManageAirlinesComponent } from './manage-airlines/manage-airlines.component';
 import AirlineService from './AirlineService';
+import BookFlightService from './Services/bookFlightService';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import AirlineService from './AirlineService';
     FormsModule,
     HttpClientModule
   ],
-  providers: [AirlineService],
+  providers: [AirlineService,BookFlightService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

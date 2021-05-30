@@ -5,12 +5,14 @@ import { ManageAirlinesComponent } from './manage-airlines/manage-airlines.compo
 import { MainNavbarComponent } from './main-navbar/main-navbar.component';
 import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
 import { UserNavbarComponent } from './user-navbar/user-navbar.component';
+import { BookFlightComponent } from './book-flight/book-flight.component';
 
 const routes: Routes = [
   {path: 'add-airline', component: AddAirlineComponent},
   {path: 'manage-airlines', component:ManageAirlinesComponent},
   {path: 'admin', component:AdminNavbarComponent},
-  {path: 'user', component:UserNavbarComponent}
+  {path: 'user', component:UserNavbarComponent},
+  {path: 'book-flight', component:BookFlightComponent}
 ];
 
 @NgModule({
@@ -23,5 +25,6 @@ export const routingComponents = [
   ManageAirlinesComponent,
   MainNavbarComponent,
   AdminNavbarComponent,
-  UserNavbarComponent
+  UserNavbarComponent,
+  BookFlightComponent
 ]
