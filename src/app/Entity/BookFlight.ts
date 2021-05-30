@@ -2,8 +2,8 @@ export default class BookFlight{
     flightType:string="";
     fromLocation:string="";
     toLocation:string="";
-    onwardJourney:string="";
-    returnJourney:string="";
+    onwardJourneyDate:string="";
+    returnJourneyDate:string="";
     onwardFlightRate:string="";
     returnFlightRate:string="";
     onwardMeal:string="";

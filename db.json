@@ -25,18 +25,25 @@
   "tickets": [
     {
       "flightType": "Round Trip",
-      "fromLocation": "Pune",
-      "toLocation": "Dubai",
-      "onwardJourney": "2021-05-31",
-      "returnJourney": "2021-06-04",
-      "onwardFlightRate": "",
-      "returnFlightRate": "",
-      "onwardMeal": "",
-      "returnMeal": "",
-      "discount": "DICS",
-      "onwardSeat": "B2",
-      "returnSeat": "D6",
+      "fromLocation": "P",
+      "toLocation": "M",
+      "onwardJourneyDate": "2021-05-30",
+      "returnJourneyDate": "2021-05-31",
+      "onwardFlightRate": "IndiGo 2990",
+      "returnFlightRate": "IndiGo 1990",
+      "onwardMeal": "Lunch Veg",
+      "returnMeal": "Breakfast-Lunch Non-Veg",
+      "discount": "DIS",
+      "onwardSeat": "H1",
+      "returnSeat": "I7",
       "finalFlightRate": "",
+      "id": 1
+    }
+  ],
+  "discounts": [
+    {
+      "discountCode": "DISC",
+      "discountPercentage": 5,
       "id": 1
     }
   ]

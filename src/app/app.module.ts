@@ -7,8 +7,9 @@ import { AppRoutingModule,routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddAirlineComponent } from './add-airline/add-airline.component';
 import { ManageAirlinesComponent } from './manage-airlines/manage-airlines.component';
-import AirlineService from './AirlineService';
-import BookFlightService from './Services/bookFlightService';
+import AirlineService from './Services/AirlineService';
+import BookFlightService from './Services/BookFlightService';
+import DiscountService from './Services/DiscountService';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import BookFlightService from './Services/bookFlightService';
     FormsModule,
     HttpClientModule
   ],
-  providers: [AirlineService,BookFlightService],
+  providers: [AirlineService,BookFlightService,DiscountService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import Airline from "./Entity/Airline";
+import Airline from "../Entity/Airline";
 const BASE_URL="http://localhost:3000/airlines"
 
 @Injectable()

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import BookFlight from '../Entity/BookFlight';
-import BookFlightService from '../Services/bookFlightService';
+import BookFlightService from '../Services/BookFlightService';
 
 @Component({
   selector: 'app-book-flight',
