@@ -14,7 +14,7 @@ export class AddAirlineComponent{
   airlines:Airline[]=[];
 
   save(){
-    console.log("saved "+this.airline.airlineName);
+    console.log("saved "+this.airline.airline_name);
     const promise = this.airlineService.save(this.airline);
     promise.subscribe(function(response){
       console.log(response);

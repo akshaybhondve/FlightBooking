@@ -6,11 +6,11 @@
       <div class="col-6">
         <div class="m-2 form-group">
           <label>Discount Code : </label>
-          <input type="text" [(ngModel)]='discount.discountCode' class="form-control" id="discoutCode" (ngModelChange)="discount.discountCode = $event.toUpperCase()">
+          <input type="text" [(ngModel)]='discount.discount_code' class="form-control" id="discoutCode" (ngModelChange)="discount.discount_code = $event.toUpperCase()">
         </div>
         <div class="m-2 form-group">
           <label>Discount (%) : </label>
-          <input type="number" [(ngModel)]='discount.discountPercentage' class="form-control" id="discountPercentage">
+          <input type="number" [(ngModel)]='discount.discount_percentage' class="form-control" id="discountPercentage">
         </div>
         <div class="m-2 form-group">
           <button (click)="saveDiscount();clearForm()" class="btn btn-primary mb-3">Add Discount</button>

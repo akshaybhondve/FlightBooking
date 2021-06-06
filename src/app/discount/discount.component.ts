@@ -17,7 +17,7 @@ export class DiscountComponent implements OnInit {
   }
 
   saveDiscount(){
-    console.log("saved "+this.discount.discountCode);
+    console.log("saved "+this.discount.discount_code);
     const promise = this.discountService.saveDiscount(this.discount);
     promise.subscribe(function(response){
       console.log(response);
@@ -29,8 +29,8 @@ export class DiscountComponent implements OnInit {
   }
 
   clearForm(){
-    this.discount.discountCode='';
-    this.discount.discountPercentage=0;
+    this.discount.discount_code='';
+    this.discount.discount_percentage=0;
   }
 
   

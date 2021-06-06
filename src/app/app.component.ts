@@ -7,10 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'FlightBooking';
-  enableEdit: boolean = false;
-
-  hideTab:boolean=false;
-  x(){
-    this.hideTab = true;
-  }
 }

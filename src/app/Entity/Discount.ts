@@ -1,5 +1,5 @@
 
 export default class Discount{
-    discountCode:string="";
-    discountPercentage: number=0;
+    discount_code:string="";
+    discount_percentage: number=0;
 } 
