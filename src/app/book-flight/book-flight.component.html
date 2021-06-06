@@ -9,27 +9,27 @@
             <label>Flight Type :</label>
           </div>
           <div class="col-4">
-            <input type="radio" [(ngModel)]='bookFlight.flightType' name="flightType" value="One Way"> One Way   
+            <input type="radio" [(ngModel)]='bookFlight.flight_type' name="flightType" value="One Way"> One Way   
           </div>
           <div class="col-4">
-            <input type="radio" [(ngModel)]='bookFlight.flightType' name="flightType" value="Round Trip"> Round Trip   
+            <input type="radio" [(ngModel)]='bookFlight.flight_type' name="flightType" value="Round Trip"> Round Trip   
           </div>
         </div>
         <div class="m-2 form-group">
           <label>From Location : </label>
-          <input type="text" [(ngModel)]='bookFlight.fromLocation' class="form-control" id="fromLocation">
+          <input type="text" [(ngModel)]='bookFlight.from_location' class="form-control" id="fromLocation">
         </div>
         <div class="m-2 form-group">
-          <label>From Location : </label>
-          <input type="text" [(ngModel)]='bookFlight.toLocation' class="form-control" id="toLocation">
+          <label>To Location : </label>
+          <input type="text" [(ngModel)]='bookFlight.to_location' class="form-control" id="toLocation">
         </div>
         <div class="m-2 form-group">
           <label>Onward Journey : </label>
-          <input type="date" [(ngModel)]='bookFlight.onwardJourneyDate' class="form-control" id="onwardJourney">
+          <input type="date" [(ngModel)]='bookFlight.onward_journey_date' class="form-control" id="onwardJourney">
         </div>
         <div class="m-2 form-group">
           <label>Return Journey : </label>
-          <input type="date" [(ngModel)]='bookFlight.returnJourneyDate' class="form-control" id="returnJourney">
+          <input type="date" [(ngModel)]='bookFlight.return_journey_date' class="form-control" id="returnJourney">
         </div>
         <div class="row m-1">
           <div class="col-6">
@@ -45,12 +45,12 @@
               </thead>
               <tbody>
                 <tr>
-                  <td><input type="radio" [(ngModel)]='bookFlight.onwardFlightRate' name="onwardFlightRate" value="IndiGo 2990"></td>
+                  <td><input type="radio" [(ngModel)]='bookFlight.onward_flight_rate' name="onwardFlightRate" value="IndiGo 2990"></td>
                   <td>IndiGo</td>
                   <td>2990</td>
                 </tr>
                 <tr>
-                  <td><input type="radio" [(ngModel)]='bookFlight.onwardFlightRate' name="onwardFlightRate" value="AirIndia 1900"></td>
+                  <td><input type="radio" [(ngModel)]='bookFlight.onward_flight_rate' name="onwardFlightRate" value="AirIndia 1900"></td>
                   <td>Air India</td>
                   <td>1900</td>
                 </tr>
@@ -70,12 +70,12 @@
               </thead>
               <tbody>
                 <tr>
-                  <td><input type="radio" [(ngModel)]='bookFlight.returnFlightRate' name="returnFlightRate" value="IndiGo 1990"></td>
+                  <td><input type="radio" [(ngModel)]='bookFlight.return_flight_rate' name="returnFlightRate" value="IndiGo 1990"></td>
                   <td>IndiGo</td>
                   <td>1990</td>
                 </tr>
                 <tr>
-                  <td><input type="radio" [(ngModel)]='bookFlight.returnFlightRate' name="returnFlightRate" value="AirIndia 1500"></td>
+                  <td><input type="radio" [(ngModel)]='bookFlight.return_flight_rate' name="returnFlightRate" value="AirIndia 1500"></td>
                   <td>Air India</td>
                   <td>1500</td>
                 </tr>
@@ -85,7 +85,7 @@
         </div>
         <div class="m-2 form-group">
           <label>Onward Trip Meal : </label>
-          <select [(ngModel)]='bookFlight.onwardMeal' id="onwardMeal" class="form-select">
+          <select [(ngModel)]='bookFlight.onward_meal' id="onwardMeal" class="form-select">
             <option>Select the meal...</option>
             <option value='Lunch Veg'>Lunch Veg</option>
             <option value='Breakfast-Lunch Veg'>Breakfast-Lunch Veg</option>
@@ -95,7 +95,7 @@
         </div>
         <div class="m-2 form-group">
           <label>Return Trip Meal : </label>
-          <select [(ngModel)]='bookFlight.returnMeal' id="returnMeal" class="form-select">
+          <select [(ngModel)]='bookFlight.return_meal' id="returnMeal" class="form-select">
             <option>Select the meal...</option>
             <option value='Lunch Veg'>Lunch Veg</option>
             <option value='Breakfast-Lunch Veg'>Breakfast-Lunch Veg</option>
@@ -114,15 +114,15 @@
         </div>
         <div class="m-2 form-group">
           <label>Onward Seat : </label>
-          <input type="text" [(ngModel)]='bookFlight.onwardSeat' class="form-control" id="onwardSeat">
+          <input type="text" [(ngModel)]='bookFlight.onward_seat' class="form-control" id="onwardSeat">
         </div>
         <div class="m-2 form-group">
           <label>Return Seat : </label>
-          <input type="text" [(ngModel)]='bookFlight.returnSeat' class="form-control" id="returnSeat">
+          <input type="text" [(ngModel)]='bookFlight.return_seat' class="form-control" id="returnSeat">
         </div>
         <div class="m-2 form-group">
           <label>Final Flight Ticket Rate : </label>
-          <input type="text" readonly [(ngModel)]='bookFlight.finalFlightRate' class="form-control" id="finalFlightRate">
+          <input type="text" readonly [(ngModel)]='bookFlight.final_flight_rate' class="form-control" id="finalFlightRate">
         </div>
         <div class="m-2 form-group">
           <button (click)="saveTicket()" class="btn btn-primary mb-3">Checkout</button>

@@ -17,7 +17,7 @@ export class BookFlightComponent implements OnInit {
   }
 
   saveTicket(){
-    console.log("saved "+this.bookFlight.flightType);
+    console.log("saved "+this.bookFlight.flight_type);
     const promise = this.bookFlightService.save(this.bookFlight);
     promise.subscribe(function(response){
       console.log(response);

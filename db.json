@@ -38,6 +38,38 @@
       "returnSeat": "I7",
       "finalFlightRate": "",
       "id": 1
+    },
+    {
+      "flight_type": "One Way",
+      "from_location": "Pune",
+      "to_location": "Mumbai",
+      "onward_journey_date": "2021-06-16",
+      "return_journey_date": "2021-06-24",
+      "onward_flight_rate": "IndiGo 2990",
+      "return_flight_rate": "AirIndia 1500",
+      "onward_meal": "Lunch Veg",
+      "return_meal": "Lunch Non-Veg",
+      "discount": "HSN",
+      "onward_seat": "H3",
+      "return_seat": "K5",
+      "final_flight_rate": "",
+      "id": 2
+    },
+    {
+      "flight_type": "One Way",
+      "from_location": "Pune",
+      "to_location": "Mumbai",
+      "onward_journey_date": "2021-06-16",
+      "return_journey_date": "2021-06-24",
+      "onward_flight_rate": "IndiGo 2990",
+      "return_flight_rate": "AirIndia 1500",
+      "onward_meal": "Lunch Veg",
+      "return_meal": "Lunch Non-Veg",
+      "discount": "HSN",
+      "onward_seat": "H3",
+      "return_seat": "K5",
+      "final_flight_rate": "",
+      "id": 3
     }
   ],
   "discounts": [
