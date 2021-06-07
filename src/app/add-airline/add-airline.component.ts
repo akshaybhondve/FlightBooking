@@ -24,5 +24,6 @@ export class AddAirlineComponent{
       alert(error.message);
     });
   }
+  
 
 }

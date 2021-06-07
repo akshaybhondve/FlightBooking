@@ -9,10 +9,10 @@
             <label>Flight Type :</label>
           </div>
           <div class="col-4">
-            <input type="radio" [(ngModel)]='bookFlight.flight_type' name="flightType" value="One Way"> One Way   
+            <input type="radio" #typeradio1 [(ngModel)]='bookFlight.flight_type' name="flightType" value="One Way" (change)="clearFinalAmount()"> One Way   
           </div>
           <div class="col-4">
-            <input type="radio" [(ngModel)]='bookFlight.flight_type' name="flightType" value="Round Trip"> Round Trip   
+            <input type="radio" #typeradio2 [(ngModel)]='bookFlight.flight_type' name="flightType" value="Round Trip" (change)="clearFinalAmount()"> Round Trip   
           </div>
         </div>
         <div class="m-2 form-group">
@@ -45,12 +45,12 @@
               </thead>
               <tbody>
                 <tr>
-                  <td><input type="radio" [(ngModel)]='bookFlight.onward_flight_rate' name="onwardFlightRate" value="IndiGo 2990"></td>
+                  <td><input type="radio" [(ngModel)]='bookFlight.onward_flight_rate' name="onwardFlightRate" value="IndiGo 2990" (change)="onSelectionOnway()"></td>
                   <td>IndiGo</td>
                   <td>2990</td>
                 </tr>
                 <tr>
-                  <td><input type="radio" [(ngModel)]='bookFlight.onward_flight_rate' name="onwardFlightRate" value="AirIndia 1900"></td>
+                  <td><input type="radio" [(ngModel)]='bookFlight.onward_flight_rate' name="onwardFlightRate" value="AirIndia 1900" (change)="onSelectionOnway()"></td>
                   <td>Air India</td>
                   <td>1900</td>
                 </tr>
@@ -70,12 +70,12 @@
               </thead>
               <tbody>
                 <tr>
-                  <td><input type="radio" [(ngModel)]='bookFlight.return_flight_rate' name="returnFlightRate" value="IndiGo 1990"></td>
+                  <td><input type="radio" [(ngModel)]='bookFlight.return_flight_rate' name="returnFlightRate" value="IndiGo 1990" [disabled] ="typeradio1.checked == true" (change)="onSelectionReturnTicket()"></td>
                   <td>IndiGo</td>
                   <td>1990</td>
                 </tr>
                 <tr>
-                  <td><input type="radio" [(ngModel)]='bookFlight.return_flight_rate' name="returnFlightRate" value="AirIndia 1500"></td>
+                  <td><input type="radio" [(ngModel)]='bookFlight.return_flight_rate' name="returnFlightRate" value="AirIndia 1500" [disabled] ="typeradio1.checked == true" (change)="onSelectionReturnTicket()"></td>
                   <td>Air India</td>
                   <td>1500</td>
                 </tr>
@@ -109,7 +109,7 @@
             <input type="text" [(ngModel)]='bookFlight.discount' class="form-control" id="discount">
           </div>
           <div class="col-4 form-group mt-4">
-            <button class="btn btn-primary">Apply Discount</button>
+            <button class="btn btn-primary" (click)="applyDiscount(bookFlight.discount)">Apply Discount</button>
           </div>
         </div>
         <div class="m-2 form-group">
@@ -121,8 +121,8 @@
           <input type="text" [(ngModel)]='bookFlight.return_seat' class="form-control" id="returnSeat">
         </div>
         <div class="m-2 form-group">
-          <label>Final Flight Ticket Rate : </label>
-          <input type="text" readonly [(ngModel)]='bookFlight.final_flight_rate' class="form-control" id="finalFlightRate">
+          <label>Final Flight Ticket Rate : {{totalRate}}</label>
+          <input type="text" readonly [(ngModel)]='bookFlight.final_flight_rate' class="form-control" id="finalFlightRate" value={{finalRate}}>
         </div>
         <div class="m-2 form-group">
           <button (click)="saveTicket()" class="btn btn-primary mb-3">Checkout</button>

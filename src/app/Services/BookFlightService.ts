@@ -15,4 +15,10 @@ export default class BookFlightService{
         console.log(ticket);
         return this.http.post(BASE_URL+"save-booking",ticket)
     }
+
+    getDiscountByCode(code:string) {
+        console.log(code);
+        return this.http.get(BASE_URL+`code-${code}`);
+    }
+
 }
