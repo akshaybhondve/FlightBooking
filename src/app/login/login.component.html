@@ -1,0 +1,31 @@
+<body class="commonBackground">
+    <div class="registration-form">
+        <h1 class="pb-4 titleCenter">Flight Booking</h1>
+        <form #loginform="ngForm" (ngSubmit)="loginUser()">
+            <div class="form-group">
+                <h1>SIGN IN</h1>
+                <small class="ms-2 text-danger">{{msg}}</small>
+            </div>
+            
+            <div class="form-group">
+                
+                <input type="text" class="form-control item" [(ngModel)]="user.email" id="email" name="email" placeholder="Email" required #email="ngModel" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                <span class="ms-2 item" *ngIf="email.errors && (email.invalid && email.touched)">
+                    <small class="text-danger" *ngIf="email.errors.required">Email Id is required !</small>
+                    <small class="text-danger" *ngIf="email.errors.pattern">Email Id should be valid</small>
+                </span>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control item" [(ngModel)]="user.password" id="password" name="password" placeholder="Password" #password="ngModel" required>
+                <span class="ms-2 item" *ngIf="password.errors && (password.invalid && password.touched)">
+                    <small class="text-danger" *ngIf="password.errors.required">Password is required !</small>
+                </span>
+            </div>
+            <div class="form-group">
+                <button [disabled]="loginform.form.invalid" type="submit" class="btn btn-block create-account">Log In</button>
+                <a class="d-block text-center mt-2 small" [routerLink]="['/registration']" >Register</a>
+            </div>
+        </form>
+        
+    </div>
+</body>

@@ -19,5 +19,6 @@ export class ManageBookingsComponent implements OnInit {
       this.bookFlights=response as BookFlight[];
     })
   }
+  
 
 }

@@ -10,6 +10,8 @@ import { ManageAirlinesComponent } from './manage-airlines/manage-airlines.compo
 import AirlineService from './Services/AirlineService';
 import BookFlightService from './Services/BookFlightService';
 import DiscountService from './Services/DiscountService';
+import RegistrationService from './Services/RegistrationService';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,9 +22,10 @@ import DiscountService from './Services/DiscountService';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers: [AirlineService,BookFlightService,DiscountService],
+  providers: [AirlineService,BookFlightService,DiscountService,RegistrationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,45 @@
+<body class="commonBackground">
+    <div class="registration-form">
+        <h1 class="pb-4 titleCenter" style="text-align:center">Flight Booking</h1>
+        <form #registrationForm="ngForm" (ngSubmit)="registrationUser()">
+            <div class="form-group">
+                <h1>User Registration</h1>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control item" [(ngModel)]="user.username" id="username" name="username" placeholder="Username" required #username="ngModel" minlength="4" maxlength="10" pattern="^[a-zA-Z0-9]{4,20}$">
+                <span class="ms-2 item" *ngIf="username.errors && (username.invalid && username.touched)">
+                    <small class="text-danger" *ngIf="username.errors.required">Username is required !</small>
+                    <small class="text-danger" *ngIf="username.errors.pattern">No special character, space and min-4 character allowed.</small>
+                </span>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control item" [(ngModel)]="user.email" id="email" name="email" placeholder="Email" required #email="ngModel" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                <span class="ms-2 item" *ngIf="email.errors && (email.invalid && email.touched)">
+                    <small class="text-danger" *ngIf="email.errors.required">Email Id is required !</small>
+                    <small class="text-danger" *ngIf="email.errors.pattern">Email Id should be valid</small>
+                </span>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control item"  [(ngModel)]="user.password" id="password" name="password" placeholder="Enter Password" #password="ngModel" required>
+                <span class="ms-2 item" *ngIf="password.errors && (password.invalid && password.touched)">
+                    <small class="text-danger" *ngIf="password.errors.required">Password is required !</small>
+                </span>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control item" (ngModel)="user.password" id="cpassword" name="cpassword" placeholder="Enter Confirm Password" #cpassword="ngModel" required
+                [class.is-invalid]="cpassword.invalid && cpassword.touched">
+                <span class="ms-2 item" [class.d-none]="(cpassword.value == password.value) || cpassword.untouched">
+                    <small class="text-danger">Confirm password mismatch !</small>
+                </span>
+                <span class="ms-2 item" *ngIf="(cpassword.value == password.value)">
+                    <small class="text-success">Confirmed password matched !</small>
+                </span>
+            </div>
+            <div class="form-group">
+                <button [disabled]="registrationForm.form.invalid" type="submit" class="btn btn-block create-account">Register</button>
+                <button class="float-right" [routerLink]="['']" class="btn btn-block create-account">Cancel</button>
+            </div>
+        </form>
+        
+    </div>
+</body>
