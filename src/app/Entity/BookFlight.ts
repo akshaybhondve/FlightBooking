@@ -11,5 +11,5 @@ export default class BookFlight{
     discount:string="";
     onward_seat:string="";
     return_seat:string="";
-    final_flight_rate:Number=0;
+    final_flight_rate!:number;
 } 

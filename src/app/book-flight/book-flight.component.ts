@@ -33,19 +33,19 @@ export class BookFlightComponent implements OnInit {
 
   radioSel1:any;
   radioSel2:any;
-  totalRate:Number=0;
-  finalRate:Number=0;
+  totalRate!:number;
+  final_flight_rate!:number;
 
   onSelectionOnway(){
     this.radioSel1 = this.bookFlight.onward_flight_rate.split(" ");
-    this.finalRate = Number(this.radioSel1[1]);
+    this.final_flight_rate = Number(this.radioSel1[1]);
   }
 
   onSelectionReturnTicket(){
     this.radioSel2 = this.bookFlight.return_flight_rate.split(" ");
     this.radioSel1 = this.bookFlight.onward_flight_rate.split(" ");
 
-    this.finalRate = Number(this.radioSel2[1])+Number(this.radioSel1[1]);
+    this.final_flight_rate = Number(this.radioSel2[1])+Number(this.radioSel1[1]);
   }
 
   applyDiscount(discount:string){
@@ -54,7 +54,7 @@ export class BookFlightComponent implements OnInit {
     promise.subscribe((response)=>{
       this.discount=response as Discount;
       this.totalRate = (Number(this.radioSel2[1])+Number(this.radioSel1[1]));
-      this.finalRate = (Number(this.radioSel2[1])+Number(this.radioSel1[1])*(this.discount.discount_percentage/100));
+      this.final_flight_rate = (Number(this.radioSel2[1])+Number(this.radioSel1[1])*(this.discount.discount_percentage/100));
     },
     function(error){
       alert("No Discount Found...Retry !");

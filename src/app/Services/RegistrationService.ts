@@ -18,6 +18,10 @@ export default class RegistrationService{
         return this.http.post<any>(BASE_URL+'registration',user);
     }
 
+    public getUser(email:string):Observable<any>{
+        return this.http.get<any>(BASE_URL+`register-${email}`);
+    }
+
     
     
 }
