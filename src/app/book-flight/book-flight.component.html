@@ -1,9 +1,9 @@
 <app-user-navbar></app-user-navbar>
-<div style="text-align:center"><h3>Book Flights</h3></div>
+<body class="commonBackground">
 <div class="container">
-    <div class="row">
-      <div class="col-3"></div>
-      <div class="col-6">
+  <h1 class="titleCenter pt-2">Book Flight</h1>
+    <div class="registration-form">
+      <form class="col-6">
         <div class="row m-2 form-group">
           <div class="col-4">
             <label>Flight Type :</label>
@@ -16,29 +16,27 @@
           </div>
         </div>
         <div class="m-2 form-group">
-          <label>From Location : </label>
-          <input type="text" [(ngModel)]='bookFlight.from_location' class="form-control" id="fromLocation">
+          <input type="text" [(ngModel)]='bookFlight.from_location' class="form-control item" placeholder="Enter From Location" id="fromLocation">
         </div>
         <div class="m-2 form-group">
-          <label>To Location : </label>
-          <input type="text" [(ngModel)]='bookFlight.to_location' class="form-control" id="toLocation">
+          <input type="text" [(ngModel)]='bookFlight.to_location' class="form-control item" id="toLocation" placeholder="Enter To Location">
         </div>
         <div class="m-2 form-group">
-          <label>Onward Journey : </label>
-          <input type="date" [(ngModel)]='bookFlight.onward_journey_date' class="form-control" id="onwardJourney">
+          <small class="ms-2">Onward Journey : </small>
+          <input type="date" style="margin-top: 0.5%;" [(ngModel)]='bookFlight.onward_journey_date' class="form-control item" id="onwardJourney" Placeholder="Select Onward Journey Date">
         </div>
         <div class="m-2 form-group">
-          <label>Return Journey : </label>
-          <input type="date" [(ngModel)]='bookFlight.return_journey_date' class="form-control" id="returnJourney">
+          <small class="ms-2">Return Journey : </small>
+          <input type="date" style="margin-top: 0.5%;" [(ngModel)]='bookFlight.return_journey_date' class="form-control item" id="returnJourney">
         </div>
         <div class="row m-1">
           <div class="col-6">
-            <h5>Onward Flight Ticket Rate :</h5>
-            <table class="table">
+            <small>Onward Flight Ticket Rate :</small>
+            <table class="table" id="dataTable">
               <thead>
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">Airline Name</th>
+                  <th scope="col">Airline</th>
                   <th scope="col">Price</th>
           
                 </tr>
@@ -58,12 +56,12 @@
             </table>
           </div>
           <div class="col-6">
-            <h5>Return Flight Ticket Rate :</h5>
-            <table class="table">
+            <small>Return Flight Ticket Rate :</small>
+            <table class="table" id="dataTable">
               <thead>
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">Airline Name</th>
+                  <th scope="col">Airline</th>
                   <th scope="col">Price</th>
           
                 </tr>
@@ -83,10 +81,10 @@
             </table>
           </div>
         </div>
-        <div class="m-2 form-group">
-          <label>Onward Trip Meal : </label>
-          <select [(ngModel)]='bookFlight.onward_meal' id="onwardMeal" class="form-select">
-            <option>Select the meal...</option>
+        <div class="ms-2 form-group">
+          <small class="ms-2">Onward Trip Meal : </small>
+          <select style="margin-top: 0.5%;" [(ngModel)]='bookFlight.onward_meal' id="onwardMeal" class="form-select item">
+            <option value="">Select the meal...</option>
             <option value='Lunch Veg'>Lunch Veg</option>
             <option value='Breakfast-Lunch Veg'>Breakfast-Lunch Veg</option>
             <option value='Lunch Non-Veg'>Lunch Non-Veg</option>
@@ -94,9 +92,9 @@
           </select>
         </div>
         <div class="m-2 form-group">
-          <label>Return Trip Meal : </label>
-          <select [(ngModel)]='bookFlight.return_meal' id="returnMeal" class="form-select">
-            <option>Select the meal...</option>
+          <small class="ms-2">Return Trip Meal : </small>
+          <select style="margin-top: 0.5%;" [(ngModel)]='bookFlight.return_meal' id="returnMeal" class="form-select item">
+            <option value="">Select the meal...</option>
             <option value='Lunch Veg'>Lunch Veg</option>
             <option value='Breakfast-Lunch Veg'>Breakfast-Lunch Veg</option>
             <option value='Lunch Non-Veg'>Lunch Non-Veg</option>
@@ -105,28 +103,26 @@
         </div>
         <div class="row ms-1">
           <div class="col-8 form-group">
-            <label>Discount : </label>
-            <input type="text" [(ngModel)]='bookFlight.discount' class="form-control" id="discount">
+            <input type="text" [(ngModel)]='bookFlight.discount' placeholder="Enter Discount Code" class="form-control item" id="discount">
           </div>
-          <div class="col-4 form-group mt-4">
-            <button class="btn btn-primary" (click)="applyDiscount(bookFlight.discount)">Apply Discount</button>
+          <div class="col-4 form-group">
+            <button class="btn btn-primary c-button" (click)="applyDiscount(bookFlight.discount)">Apply</button>
           </div>
         </div>
         <div class="m-2 form-group">
-          <label>Onward Seat : </label>
-          <input type="text" [(ngModel)]='bookFlight.onward_seat' class="form-control" id="onwardSeat">
+          <input type="text" [(ngModel)]='bookFlight.onward_seat' placeholder="Enter Onward Seat" class="form-control item" id="onwardSeat">
         </div>
         <div class="m-2 form-group">
-          <label>Return Seat : </label>
-          <input type="text" [(ngModel)]='bookFlight.return_seat' class="form-control" id="returnSeat">
+          <input type="text" [(ngModel)]='bookFlight.return_seat' placeholder="Enter Return Seat" class="form-control item" id="returnSeat">
         </div>
         <div class="m-2 form-group">
-          <label>Final Flight Ticket Rate : {{totalRate}}</label>
-          <input type="text" readonly [(ngModel)]='bookFlight.final_flight_rate' class="form-control" id="finalFlightRate" value={{finalRate}}>
+          <small class="ms-2">Final Flight Ticket Rate :</small> {{totalRate}}
+          <input type="text" style="margin-top: 0.5%;" readonly [(ngModel)]='bookFlight.final_flight_rate' class="form-control item" id="finalFlightRate" value={{finalRate}}>
         </div>
         <div class="m-2 form-group">
-          <button (click)="saveTicket()" class="btn btn-primary mb-3">Checkout</button>
+          <button (click)="saveTicket()" class="btn btn-primary c-button">Checkout</button>
         </div>
-      </div>
+      </form>
     </div>
 </div>
+</body>

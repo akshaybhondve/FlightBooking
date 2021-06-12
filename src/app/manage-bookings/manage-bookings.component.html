@@ -1,13 +1,17 @@
-<app-user-navbar></app-user-navbar>
-<div class="container p-2 bg-light border">
-    <div class="row">
-      <div class="col-9 pull-right" style="text-align:center"><h3>Manage Booking</h3></div>
+
+<app-user-navbar class="commonBackground"></app-user-navbar>
+<body class="p-2 commonBackground">
+<div class="container bg-light">
+    <div class="row commonBackground">
+      <div class="col-2"></div>
+      <div class="col-7 pull-right titleCenter"><h3>Manage Bookings</h3></div>
       <div class="col-3 pull-left"><button class="btn btn-primary"><a class="fs-6 text-light text-decoration-none" href="/book-flight">Book New Flight</a></button></div>
     </div>
   </div>
-  <div class="d-flex justify-content-center align-items-center container p-2">
-  <table class="table">
-      <thead>
+  <div class="container bg-light border">
+  <div class="row">
+  <table class="table border" id="dataTable">
+      <thead class="">
         <tr>
             
           <th scope="col">Airline Name Price</th>
@@ -22,16 +26,14 @@
           <td>{{ticket.onward_flight_rate}}</td>
           <td>[src]</td>
           <td>{{ticket.onward_journey_date}}</td>
-          <td>
-                <button class="btn btn-primary m-1">View</button>
-                <button class="btn btn-primary m-1">Download</button>
-                <button class="btn btn-primary m-1">Cancel</button>
+          <td class="actionButton">
+                <button class="btn btn-primary aM">View</button>
+                <button class="btn btn-primary aM">Download</button>
+                <button class="btn btn-primary aM">Cancel</button>
           </td>
         </tr>
       </tbody>
     </table>
-
-
-
-    
   </div>
+</div>
+</body>

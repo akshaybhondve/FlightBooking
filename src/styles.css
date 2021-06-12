@@ -28,7 +28,7 @@
     }
     
     .registration-form{
-        padding: 50px 0;
+        padding: 30px 0;
     }
     
     .form-group > a {
@@ -68,11 +68,12 @@
     
     .registration-form .item{
         border-radius: 20px;
-        margin-top: 20px;
+        margin-top: 12px;
+        margin-bottom:3px;
         padding: 10px;
     }
     
-    .registration-form .create-account{
+    .registration-form .c-button{
         border-radius: 30px;
         padding: 10px 20px;
         font-size: 18px;
@@ -80,7 +81,8 @@
         background-color: #5791ff;
         border: none;
         color: white;
-        margin-top: 20px;
+        margin-top: 10px;
+        width: max-content;
     }
     
     .registration-form .social-media{
@@ -132,3 +134,41 @@
             line-height: 70px;
         }
     }
+
+
+  
+#dataTable {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #dataTable td, #dataTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+ 
+  
+  #dataTable tr:nth-child(even){background-color: #ece4e4;}
+  
+  #dataTable tr:hover {background-color: rgb(225, 235, 245);}
+  
+  #dataTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #96ccf3;
+    color: white;
+  }
+
+  #dataTable .actionButton {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    color: white;
+  }
+
+  #dataTable .aM {
+    margin-left: 5%;
+  }
