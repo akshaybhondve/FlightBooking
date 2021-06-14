@@ -34,10 +34,16 @@
                 <span class="ms-2 item" *ngIf="(cpassword.value == password.value)">
                     <small class="text-success">Confirmed password matched !</small>
                 </span>
+                <input type="checkbox" hidden class="form-control item" [(ngModel)]="user.isAdmin" id="isAdmin" name="isAdmin" #isAdmin="ngModel">
             </div>
-            <div class="form-group">
-                <button [disabled]="registrationForm.form.invalid" type="submit" class="btn btn-block c-button">Register</button>
-                <button class="float-right" [routerLink]="['']" class="btn btn-block c-button">Cancel</button>
+            <div class="ms-4 form-group">
+                <span class="ms-5">
+                    <button [disabled]="registrationForm.form.invalid" type="submit" class="btn btn-block c-button">Register</button>
+                </span>
+                <span class="ms-5">
+                    <button class="m-2 float-right" [routerLink]="['']" class="btn btn-block c-button">Cancel</button>
+                </span>
+                
             </div>
         </form>
         

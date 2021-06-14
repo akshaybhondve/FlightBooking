@@ -28,14 +28,11 @@
             ],
             "styles": [
               "src/styles.css",
-              "../FlightBooking/node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "../FlightBooking/node_modules/bootstrap/dist/css/bootstrap-datetimepicker.css"
+              "../FlightBooking/node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [
               "../FlightBooking/node_modules/jquery/dist/jquery.js",
-              "../FlightBooking/node_modules/bootstrap/dist/js/bootstrap.js",
-              "../FlightBooking/node_modules/bootstrap/dist/js/bootstrap-jquery-1.8.3.min.js",
-              "../FlightBooking/node_modules/bootstrap/dist/js/bootstrap-datetimepicker.js"
+              "../FlightBooking/node_modules/bootstrap/dist/js/bootstrap.js"
             ]
           },
           "configurations": {

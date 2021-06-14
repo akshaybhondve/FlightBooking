@@ -21,16 +21,13 @@
         <div class="m-2 form-group">
           <input type="text" name="to_location" [(ngModel)]='bookFlight.to_location' class="form-control item" id="toLocation" placeholder="Enter To Location">
         </div>
-        <div class='m-2 form-group date'>
-          <input type='text' class="form-control item" id='dtpickerdemo' />
-        </div>
         <div class="m-2 form-group">
           <small class="ms-2">Onward Journey : </small>
-          <input type="datetime-local" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}" required style="margin-top: 0.5%;" name="onward_journey_date" [(ngModel)]='bookFlight.onward_journey_date' class="form-control item" id="onwardJourney" Placeholder="Select Onward Journey Date">
+          <input type="datetime-local" min={{onOnwrdJourneyDate}} (change)="getReturnJouneyDate(bookFlight.onward_journey_date)" required style="margin-top: 0.5%;" name="onward_journey_date" [(ngModel)]='bookFlight.onward_journey_date' class="form-control item" id="onwardJourney">
         </div>
         <div class="m-2 form-group">
           <small class="ms-2">Return Journey : </small>
-          <input type="datetime-local" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}" style="margin-top: 0.5%;" name="return_journey_date" [(ngModel)]='bookFlight.return_journey_date' class="form-control item" id="returnJourney">
+          <input type="datetime-local" min={{onReturnJourneyDate}} style="margin-top: 0.5%;" name="return_journey_date" [(ngModel)]='bookFlight.return_journey_date' class="form-control item" id="returnJourney">
         </div>
         <div class="row m-1">
           <div class="col-6">
@@ -120,7 +117,7 @@
         </div>
         <div class="m-2 form-group">
           <small class="ms-2">Final Flight Ticket Rate :</small> {{totalRate}}
-          <input type="text" style="margin-top: 0.5%;" name="final_flight_rate" readonly [(ngModel)]='bookFlight.final_flight_rate' class="form-control item" id="finalFlightRate">
+          <input type="text" style="margin-top: 0.5%;" name="final_flight_rate" value="{{final_flight_rate}}" [(ngModel)]='bookFlight.final_flight_rate' class="form-control item" id="finalFlightRate">
         </div>
         <div class="m-2 form-group">
           <button (click)="saveTicket()" class="btn btn-primary c-button">Checkout</button>

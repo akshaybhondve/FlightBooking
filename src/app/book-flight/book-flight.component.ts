@@ -17,6 +17,7 @@ export class BookFlightComponent implements OnInit {
   bookFlights:BookFlight[]=[];
 
   ngOnInit(): void {
+    this.getOnwardJourneyDate();
   }
 
   saveTicket(){
@@ -36,16 +37,57 @@ export class BookFlightComponent implements OnInit {
   totalRate!:number;
   final_flight_rate!:number;
 
+  onOnwrdJourneyDate:any = "";
+  onReturnJourneyDate:any = "";
+  onward_journey_date:any="";
+
+  getOnwardJourneyDate(){
+    var date:any = new Date();
+    var toDate:any = date.getDate();
+    if(toDate < 10){
+      toDate = '0'+toDate;
+    }
+
+    var month = date.getMonth()+1;
+    if(month < 10){
+      month = '0'+month;
+    }
+
+    var hour = date.getHours();
+    if(hour < 10){
+      hour = '0'+hour;
+    }
+
+    var minutes = date.getMinutes();
+    if(minutes < 10){
+      minutes = '0'+minutes;
+    }
+    var year = date.getFullYear();
+    this.onOnwrdJourneyDate = year+"-"+month+"-"+toDate+"T"+hour+":"+minutes;
+    this.onward_journey_date = this.onOnwrdJourneyDate;
+    console.log(this.onOnwrdJourneyDate);
+  }
+
+  getReturnJouneyDate(date:string){
+    console.log(date);
+    this.onReturnJourneyDate= (date);
+    console.log(this.onReturnJourneyDate);
+  }
+
+
+
   onSelectionOnway(){
     this.radioSel1 = this.bookFlight.onward_flight_rate.split(" ");
-    this.final_flight_rate = Number(this.radioSel1[1]);
+    this.final_flight_rate = parseInt(this.radioSel1[1]);
+    this.bookFlight.final_flight_rate = this.final_flight_rate;
   }
 
   onSelectionReturnTicket(){
     this.radioSel2 = this.bookFlight.return_flight_rate.split(" ");
     this.radioSel1 = this.bookFlight.onward_flight_rate.split(" ");
 
-    this.final_flight_rate = Number(this.radioSel2[1])+Number(this.radioSel1[1]);
+    this.final_flight_rate = parseInt(this.radioSel2[1])+parseInt(this.radioSel1[1]);
+    this.bookFlight.final_flight_rate = this.final_flight_rate;
   }
 
   applyDiscount(discount:string){
@@ -53,8 +95,9 @@ export class BookFlightComponent implements OnInit {
     const promise = this.bookFlightService.getDiscountByCode(this.bookFlight.discount);
     promise.subscribe((response)=>{
       this.discount=response as Discount;
-      this.totalRate = (Number(this.radioSel2[1])+Number(this.radioSel1[1]));
-      this.final_flight_rate = (Number(this.radioSel2[1])+Number(this.radioSel1[1])*(this.discount.discount_percentage/100));
+      this.totalRate = (parseInt(this.radioSel2[1])+parseInt(this.radioSel1[1]));
+      this.final_flight_rate = (parseInt(this.radioSel2[1])+parseInt(this.radioSel1[1])*(this.discount.discount_percentage/100));
+      this.bookFlight.final_flight_rate = this.final_flight_rate;
     },
     function(error){
       alert("No Discount Found...Retry !");

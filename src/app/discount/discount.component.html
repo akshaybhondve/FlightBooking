@@ -1,20 +1,23 @@
 <app-admin-navbar></app-admin-navbar>
-<div style="text-align:center"><h3>Book Flights</h3></div>
-<div class="container">
-    <div class="row">
-      <div class="col-3"></div>
-      <div class="col-6">
-        <div class="m-2 form-group">
-          <label>Discount Code : </label>
-          <input type="text" [(ngModel)]='discount.discount_code' class="form-control" id="discoutCode" (ngModelChange)="discount.discount_code = $event.toUpperCase()">
-        </div>
-        <div class="m-2 form-group">
-          <label>Discount (%) : </label>
-          <input type="number" [(ngModel)]='discount.discount_percentage' class="form-control" id="discountPercentage">
-        </div>
-        <div class="m-2 form-group">
-          <button (click)="saveDiscount();clearForm()" class="btn btn-primary mb-3">Add Discount</button>
-        </div>
+
+<body class="commonBackground">
+  <div class="registration-form">
+    <h1 class="pb-4 titleCenter">Flight Booking</h1>
+    <form #discountform="ngForm" (ngSubmit)="saveDiscount();clearForm()">
+      <div class="ms-2 form-group">
+        <h1>Discount</h1>
       </div>
-    </div>
-</div>
+      <div class="m-2 form-group">
+        <input type="text" placeholder="Enter Discount Code" [(ngModel)]='discount.discount_code'
+          name="discount_code" class="form-control item" id="discoutCode" (ngModelChange)="discount.discount_code = $event.toUpperCase()">
+      </div>
+      <div class="m-2 form-group">
+        <input type="text" name="discount_percentage" placeholder="Enter Discount" [(ngModel)]='discount.discount_percentage'
+          class="item form-control" id="discountPercentage">
+      </div>
+      <div class="m-2 form-group">
+        <button type="submit" class="btn btn-primary mb-3">Add Discount</button>
+      </div>
+    </form>
+  </div>
+</body>

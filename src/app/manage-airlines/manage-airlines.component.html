@@ -5,8 +5,9 @@
     <div class="col-3 pull-left"><button class="btn btn-primary"><a class="fs-6 text-light text-decoration-none" routerLink="/add-airline">Add New Airline</a></button></div>
   </div>
 </div>
-<div class="d-flex justify-content-center align-items-center container p-2">
-<table class="table">
+<div class="container bg-light border">
+  <div class="row">
+  <table class="table border" style="margin-bottom: 0%;" id="dataTable">
     <thead>
       <tr>
         <th scope="col">Logo</th>
@@ -19,11 +20,11 @@
     </thead>
     <tbody>
       <tr *ngFor="let air of airlines">
-        <td>{{air.airline_logo}}</td>
+        <td>src</td>
         <td>{{air.airline_name}}</td>
         <td>{{air.airline_contact}}</td>
         <td>{{air.airline_address}}</td>
-        <td><button class="btn btn-primary mb-1">View Details</button></td>
+        <td class="actionButton"><button class="btn btn-primary mb-1">View Details</button></td>
       </tr>
     </tbody>
   </table>
