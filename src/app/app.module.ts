@@ -7,11 +7,12 @@ import { AppRoutingModule,routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddAirlineComponent } from './add-airline/add-airline.component';
 import { ManageAirlinesComponent } from './manage-airlines/manage-airlines.component';
+import { ReactiveFormsModule } from '@angular/forms';
 import AirlineService from './Services/AirlineService';
 import BookFlightService from './Services/BookFlightService';
 import DiscountService from './Services/DiscountService';
 import RegistrationService from './Services/RegistrationService';
-import { ReactiveFormsModule } from '@angular/forms';
+import TicketService from './Services/TicketService';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     ReactiveFormsModule,
   ],
-  providers: [AirlineService,BookFlightService,DiscountService,RegistrationService],
+  providers: [AirlineService,BookFlightService,DiscountService,RegistrationService,TicketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

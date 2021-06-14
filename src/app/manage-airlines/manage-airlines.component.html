@@ -1,8 +1,12 @@
 <app-admin-navbar></app-admin-navbar>
 <div class="container p-2 bg-light border">
   <div class="row">
-    <div class="col-9 pull-right" style="text-align:center"><h3>Manage Airlines</h3></div>
-    <div class="col-3 pull-left"><button class="btn btn-primary"><a class="fs-6 text-light text-decoration-none" routerLink="/add-airline">Add New Airline</a></button></div>
+    <div class="col-1"></div>
+    <div class="col-8 pull-left titleCenter"><h3>Manage Airlines</h3></div>
+    <div class="col-3 pull-right">
+      <button class="btn btn-primary m-2"><a class="fs-6 text-light text-decoration-none" routerLink="/add-airline">Add New Airline</a></button>
+      <button class="btn btn-primary m-2"><a class="fs-6 text-light text-decoration-none" routerLink="/add-ticket">Add Ticket</a></button>
+    </div>
   </div>
 </div>
 <div class="container bg-light border">
@@ -24,7 +28,10 @@
         <td>{{air.airline_name}}</td>
         <td>{{air.airline_contact}}</td>
         <td>{{air.airline_address}}</td>
-        <td class="actionButton"><button class="btn btn-primary mb-1">View Details</button></td>
+        <td class="actionButton">
+          <button class="btn btn-primary m-2">Update Airlines</button>
+
+        </td>
       </tr>
     </tbody>
   </table>

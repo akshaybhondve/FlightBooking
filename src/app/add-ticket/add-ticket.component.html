@@ -1,0 +1,30 @@
+<app-admin-navbar></app-admin-navbar>
+<body class="commonBackground">
+  <div class="registration-form">
+    <form #ticketform="ngForm" (ngSubmit)="saveTicket();clearForm()">
+      <div class="ms-2 form-group">
+        <h1 class="titleCenter">Airline Ticket Price</h1>
+      </div>
+      <div class="m-2 form-group">
+        <small class="ms-2">Select Airline</small>
+        <select style="margin-top: 0.5%;" placeholder="Select Airline" [(ngModel)]='ticket.airline_id' name="airline_name" class="form-control item" id="airlineName">
+		<option *ngFor="let airline of airlines" value={{airline.airline_id}}>{{airline.airline_name}}</option>
+        </select>
+        <small class="ms-2">Type class</small>
+        <select style="margin-top: 0.5%;" [(ngModel)]='ticket.ticket_type' id="ticket_type" name="ticket_type" class="form-control item" id="ticket_type" placeholder="Select Class">
+            <option value="">Select Class</option>
+	    <option value='Economy Class'>Economy Class</option>
+            <option value='Business Class'>Business Class</option>
+            <option value='First Class'>First Class</option>
+          </select> 
+      </div>
+      <div class="m-2 form-group">
+        <input type="text" name="ticket_price" placeholder="Enter Price" [(ngModel)]='ticket.ticket_price'
+          class="item form-control" id="ticketPrice">
+      </div>
+      <div class="m-2 form-group">
+        <button type="submit" class="btn btn-primary c-button">Add Ticket</button>
+      </div>
+    </form>
+  </div>
+</body>
