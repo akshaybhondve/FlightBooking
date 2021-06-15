@@ -13,6 +13,8 @@ import { RegistrationComponent } from './registration/registration.component';
 import { AddTicketComponent } from './add-ticket/add-ticket.component';
 import { ManageFlightComponent } from './manage-flight/manage-flight.component';
 import { AddFlightComponent } from './add-flight/add-flight.component';
+import { AddScheduleFlightComponent } from './add-schedule-flight/add-schedule-flight.component';
+import { ManageScheduleFlightComponent } from './manage-schedule-flight/manage-schedule-flight.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
@@ -27,7 +29,9 @@ const routes: Routes = [
   {path: 'add-discount', component:DiscountComponent},
   {path: 'add-ticket', component:AddTicketComponent},
   {path: 'add-flight', component:AddFlightComponent},
-  {path: 'manage-flight', component:ManageFlightComponent}
+  {path: 'manage-flight', component:ManageFlightComponent},
+  {path: 'schedule-flight', component:AddScheduleFlightComponent},
+  {path: 'manage-schedule-flight', component:ManageScheduleFlightComponent}
 ];
 
 @NgModule({
@@ -48,5 +52,8 @@ export const routingComponents = [
   RegistrationComponent,
   AddTicketComponent,
   ManageFlightComponent,
-  AddFlightComponent
+  AddFlightComponent,
+  AddScheduleFlightComponent,
+  ManageScheduleFlightComponent
+
 ]

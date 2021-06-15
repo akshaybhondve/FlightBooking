@@ -1,1 +1,31 @@
-<p>add-flight works!</p>
+<app-admin-navbar></app-admin-navbar>
+
+<body class="commonBackground">
+  <div class="registration-form">
+    <h1 class="pb-4 titleCenter">Flight Booking</h1>
+     <form #flightform="ngForm" (ngSubmit)="saveFlight();clearForm()">
+      <div class="ms-2 form-group">
+        <h1 class="titleCenter">Add Flight</h1>
+      </div>
+      <div class="m-2 form-group">
+        <small class="ms-2">Select Airline</small>
+        <select style="margin-top: 0.5%;" placeholder="Select Airline" [(ngModel)]='flight.airline_name' name="airline_name" class="form-control item" id="airlineName">
+		<option *ngFor="let airline of airlines"  value={{airline.airline_name}}>{{airline.airline_name}}</option>
+        </select>
+      </div>
+
+      <div class="m-2 form-group">
+        <input type="text" name="fromLocation" placeholder="Enter From Location" [(ngModel)]='flight.fromLocation'
+          class="item form-control" id="fromLocation">
+      </div>
+
+      <div class="m-2 form-group">
+        <input type="text" name="toLocation" placeholder="Enter To Location" [(ngModel)]='flight.toLocation'
+          class="item form-control" id="toLocation">
+      </div>
+      <div class="m-2 form-group">
+        <button type="submit" class="btn btn-primary mb-3 c-button">Add Flight</button>
+      </div>
+    </form>
+  </div>
+</body>

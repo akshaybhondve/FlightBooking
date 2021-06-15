@@ -1,0 +1,55 @@
+<app-admin-navbar></app-admin-navbar>
+
+<body class="commonBackground">
+  <div class="registration-form">
+    <h1 class="pb-4 titleCenter">Flight Booking</h1>
+     <form #scheduleform="ngForm" (ngSubmit)="saveScheduleFlight();clearForm()">
+      <div class="ms-2 form-group">
+        <h3 class="titleCenter">Scheduling Flight</h3>
+      </div>
+
+      <small class="ms-2">Airline</small>
+      <div class="m-2 form-group">
+        <input type="text" style="margin-top: 0.5%;" readonly name="airline_name" [(ngModel)]='schedule.airline_name'
+          class="item form-control" id="airline_name">
+      </div>
+      <small class="ms-2">From Location :</small>
+      <div class="m-2 form-group">
+        <input type="text" style="margin-top: 0.5%;" readonly name="fromLocation"  [(ngModel)]='schedule.from_location'
+          class="item form-control" id="fromLocation">
+      </div>
+
+      <small class="ms-2">To Location :</small>
+      <div class="m-2 form-group">
+        <input type="text" style="margin-top: 0.5%;" readonly name="toLocation" [(ngModel)]='schedule.to_location'
+          class="item form-control" id="toLocation">
+      </div>
+
+      <small class="ms-2">Schedule Date</small>
+      <div class="m-2 form-group">
+        <input type="date" style="margin-top: 0.5%;" name="flight_date"  [(ngModel)]="schedule.flight_date"
+          class="item form-control" id="flight_date">
+      </div>
+      <div class="m-2 form-group">
+        <input type="time" name="flight_time"  [(ngModel)]='schedule.flight_time'
+          class="item form-control" id="flight_time">
+      </div>
+      <div class="m-2 form-group">
+        <input type="text" name="no_of_businessseat" placeholder="Enter Total No. of Business Class Seat" [(ngModel)]='schedule.no_of_businessseat'
+          class="item form-control" id="no_of_businessseat">
+      </div>
+      <div class="m-2 form-group">
+        <input type="text" name="no_of_firstseat"  placeholder="Enter Total No. of First Class Seat" [(ngModel)]='schedule.no_of_firstseat'
+          class="item form-control" id="no_of_firstseat">
+      </div>
+      <div class="m-2 form-group">
+        <input type="text" name="no_of_economyseat" placeholder="Enter Total No. of Economy Class Seat" [(ngModel)]='schedule.no_of_economyseat'
+          class="item form-control" id="no_of_economyseat">
+      </div>
+
+      <div class="m-2 form-group">
+        <button type="submit" class="btn btn-primary mb-3 c-button">Add Flight</button>
+      </div>
+    </form>
+  </div>
+</body>

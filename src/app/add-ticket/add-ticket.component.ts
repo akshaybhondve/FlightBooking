@@ -27,9 +27,6 @@ export class AddTicketComponent implements OnInit {
     });
   }
 
-  getTickets(){
-    
-  }
 
   saveTicket(){
     console.log("saved "+this.ticket.ticket_price);

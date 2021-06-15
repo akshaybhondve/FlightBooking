@@ -1,11 +1,10 @@
-
 <app-admin-navbar class="commonBackground"></app-admin-navbar>
 <body class="p-2 commonBackground">
 <div class="container bg-light">
     <div class="row commonBackground">
       <div class="col-2"></div>
-      <div class="col-7 pull-right titleCenter"><h3>Manage Flight</h3></div>
-      <div class="col-3 pull-left"><button class="btn btn-primary"><a class="fs-6 text-light text-decoration-none" href="/add-flight">Add New Flight</a></button></div>
+      <div class="col-7 pull-right titleCenter"><h3>Manage Schedule</h3></div>
+      <div class="col-3 pull-left"><button class="btn btn-primary"><a class="fs-6 text-light text-decoration-none" href="/book-flight">Book New Flight</a></button></div>
     </div>
   </div>
   <div class="container bg-light border">
@@ -17,18 +16,20 @@
           <th scope="col">Airline Name</th>
           <th scope="col">From Location</th>
           <th scope="col">To Location</th>
+          <th scope="col">Schedule Time</th>
           <th scope="col">Action</th>
   
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let flight of flights">
-          <td>{{flight.airline_name}}</td>
-          <td>{{flight.fromLocation}}</td>
-          <td>{{flight.toLocation}}</td>
+        <tr *ngFor="let schedules of schedules">
+          <td>{{schedules.airline_name}}</td>
+          <td>{{schedules.from_location}}</td>
+          <td>{{schedules.to_location}}</td>
+          <td>{{schedules.flight_date}}, {{schedules.flight_time}}</td>
           <td class="actionButton">
-                <button class="btn btn-primary aM" (click)="getScheduleForm(flight.airline_name,flight.fromLocation,flight.toLocation)" href="/schedule-flight">
-                  Schedule Flight</button>
+                <button class="btn btn-primary aM">View</button>
+                <button class="btn btn-primary aM">Cancel</button>
           </td>
         </tr>
       </tbody>

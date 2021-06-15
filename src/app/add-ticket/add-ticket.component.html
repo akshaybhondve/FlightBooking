@@ -10,6 +10,8 @@
         <select style="margin-top: 0.5%;" placeholder="Select Airline" [(ngModel)]='ticket.airline_id' name="airline_name" class="form-control item" id="airlineName">
 		<option *ngFor="let airline of airlines" value={{airline.airline_id}}>{{airline.airline_name}}</option>
         </select>
+      </div>
+        <div class="m-2 form-group">
         <small class="ms-2">Type class</small>
         <select style="margin-top: 0.5%;" [(ngModel)]='ticket.ticket_type' id="ticket_type" name="ticket_type" class="form-control item" id="ticket_type" placeholder="Select Class">
             <option value="">Select Class</option>

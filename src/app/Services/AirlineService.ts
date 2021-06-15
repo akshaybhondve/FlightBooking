@@ -15,4 +15,10 @@ export default class AirlineService{
         console.log(airline);
         return this.http.post(BASE_URL+'save-airline',airline);
     }
+
+    getAirlinesName(airlineId:number){
+        console.log(airlineId);
+        return this.http.get(BASE_URL+`airline/${airlineId}`);
+    }
+   
 }

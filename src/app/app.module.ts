@@ -13,6 +13,10 @@ import BookFlightService from './Services/BookFlightService';
 import DiscountService from './Services/DiscountService';
 import RegistrationService from './Services/RegistrationService';
 import TicketService from './Services/TicketService';
+import FlightService from './Services/FlightService';
+import ScheduleFlightService from './Services/ScheduleFlightService';
+import ScheduleFlight from './Entity/ScheduleFlight';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +30,7 @@ import TicketService from './Services/TicketService';
     HttpClientModule,
     ReactiveFormsModule,
   ],
-  providers: [AirlineService,BookFlightService,DiscountService,RegistrationService,TicketService],
+  providers: [ScheduleFlight,ScheduleFlightService,FlightService,AirlineService,BookFlightService,DiscountService,RegistrationService,TicketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
