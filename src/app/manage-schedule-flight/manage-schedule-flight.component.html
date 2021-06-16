@@ -16,7 +16,7 @@
           <th scope="col">Airline Name</th>
           <th scope="col">From Location</th>
           <th scope="col">To Location</th>
-          <th scope="col">Schedule Time</th>
+          <th scope="col">Schedule Date Time</th>
           <th scope="col">Action</th>
   
         </tr>
@@ -24,8 +24,8 @@
       <tbody>
         <tr *ngFor="let schedules of schedules">
           <td>{{schedules.airline_name}}</td>
-          <td>{{schedules.from_location}}</td>
-          <td>{{schedules.to_location}}</td>
+          <td>{{schedules.fromLocation}}</td>
+          <td>{{schedules.toLocation}}</td>
           <td>{{schedules.flight_date}}, {{schedules.flight_time}}</td>
           <td class="actionButton">
                 <button class="btn btn-primary aM">View</button>

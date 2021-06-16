@@ -17,13 +17,14 @@ export class AddScheduleFlightComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       this.schedule.airline_name = params['airline_name'];
-      this.schedule.from_location = params['fromLocation'];
-      this.schedule.to_location =params['toLocation'];
+      this.schedule.fromLocation = params['fromLocation'];
+      this.schedule.toLocation =params['toLocation'];
+      this.schedule.flight_id =params['flight_id'];
     });
   }
 
   saveScheduleFlight(){
-    console.log("saved "+this.schedule.from_location);
+    console.log("saved "+this.schedule.fromLocation);
     const promise = this.scheduleService.saveScheduleFlights(this.schedule);
     promise.subscribe((response)=>{
       console.log(response);
@@ -37,8 +38,8 @@ export class AddScheduleFlightComponent implements OnInit {
 
   clearForm(){
     this.schedule.airline_name="";
-    this.schedule.from_location="";
-    this.schedule.to_location="";
+    this.schedule.fromLocation="";
+    this.schedule.toLocation="";
     this.schedule = new ScheduleFlight();
   }
 }

@@ -14,21 +14,20 @@
       <thead class="">
         <tr>
             
-          <th scope="col">Airline Name Price</th>
-          <th scope="col">Logo</th>
-          <th scope="col">Date</th>
+          <th scope="col">From Location</th>
+          <th scope="col">To Location</th>
+          <th scope="col">Total Ticket Price</th>
           <th scope="col">Action</th>
   
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let ticket of bookFlights">
-          <td>{{ticket.onward_flight_rate}}</td>
-          <td>[src]</td>
-          <td>{{ticket.onward_journey_date}}</td>
+          <td>{{ticket.from_location}}</td>
+          <td>{{ticket.to_location}}</td>
+          <td>{{ticket.final_flight_rate}}</td>
           <td class="actionButton">
                 <button class="btn btn-primary aM">View</button>
-                <button class="btn btn-primary aM">Download</button>
                 <button class="btn btn-primary aM">Cancel</button>
           </td>
         </tr>

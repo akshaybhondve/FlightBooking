@@ -17,5 +17,9 @@ export default class ScheduleFlightService{
         console.log(flight);
         return this.http.post(BASE_URL+'save-scheduleflight',flight);
     }
+
+    getScheduleFlightByID(scheduleId:number){
+        return this.http.get(BASE_URL+`schedule-${scheduleId}`);
+    }
     
 }

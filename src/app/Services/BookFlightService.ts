@@ -21,4 +21,8 @@ export default class BookFlightService{
         return this.http.get(BASE_URL+`code-${code}`);
     }
 
+    getScheduleFlight(fromLocation:string,toLocation:string){
+        return this.http.get(BASE_URL+`from_location-${fromLocation}`+`/to_location-${toLocation}`);
+    }
+
 }

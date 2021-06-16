@@ -17,5 +17,9 @@ export default class TicketService{
         console.log(ticket);
         return this.http.post(BASE_URL+'save-ticketcategory',ticket);
     }
+
+    getTicketPriceByAirlineName(airline_name:string){
+        return this.http.get(BASE_URL+`airline_name-${airline_name}`);
+    }
     
 }

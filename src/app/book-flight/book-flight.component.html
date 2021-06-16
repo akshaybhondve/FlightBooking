@@ -22,84 +22,55 @@
           <input type="text" name="to_location" [(ngModel)]='bookFlight.to_location' class="form-control item" id="toLocation" placeholder="Enter To Location">
         </div>
         <div class="m-2 form-group">
+          <button class="btn btn-primary c-button" (click)="getOnwardScheduleFlight(bookFlight.from_location,bookFlight.to_location);getReturnScheduleFlight(bookFlight.to_location,bookFlight.from_location)">Search Flight</button>
+        </div>
+        <!-- <div class="m-2 form-group">
           <small class="ms-2">Onward Journey : </small>
           <input type="datetime-local" min={{onOnwrdJourneyDate}} (change)="getReturnJouneyDate(bookFlight.onward_journey_date)" required style="margin-top: 0.5%;" name="onward_journey_date" [(ngModel)]='bookFlight.onward_journey_date' class="form-control item" id="onwardJourney">
         </div>
         <div class="m-2 form-group">
           <small class="ms-2">Return Journey : </small>
           <input type="datetime-local" min={{onReturnJourneyDate}} style="margin-top: 0.5%;" name="return_journey_date" [(ngModel)]='bookFlight.return_journey_date' class="form-control item" id="returnJourney">
+        </div> -->
+        <div class="m-2 form-group">
+        <small class="ms-2">Select Onward Schedule Flight</small>
+        <select style="margin-top: 0.5%;" (ngModelChange)="getOnwardFlightPricesO1($event)" placeholder="Select Schedule Flight" [(ngModel)]='bookFlight.onward_scheduled_flight' name="onward_scheduled_flight" class="form-control item" id="onward_scheduled_flight">
+	      	<option *ngFor="let schedule of onwards" class="item" value="{{schedule.schedule_id}}"><b>{{schedule.airline_name}}</b> Date & Time : {{schedule.flight_date | date: 'EEEE, MMMM d, y'}}, {{schedule.flight_time}} </option>
+        </select>
+      </div>
+      <div class="m-2 form-group">
+        <small class="ms-2">Select Return Schedule Flight</small>
+        <select style="margin-top: 0.5%;" (ngModelChange)="getReturnFlightPricesR1($event)" [(ngModel)]='bookFlight.return_scheduled_flight' name="return_scheduled_flight" class="form-control item" id="return_scheduled_flight">
+	      	<option *ngFor="let schedule of returns" class="item" value="{{schedule.schedule_id}}"><b>{{schedule.airline_name}}</b> Date & Time : {{schedule.flight_date | date: 'EEEE, MMMM d, y'}}, {{schedule.flight_time}} </option>
+        </select>
         </div>
-        <div class="row m-1">
-          <div class="col-6">
-            <small>Onward Flight Ticket Rate :</small>
-            <table class="table" id="dataTable">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Airline</th>
-                  <th scope="col">Price</th>
-          
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><input type="radio" [(ngModel)]='bookFlight.onward_flight_rate' name="onwardFlightRate" value="IndiGo 2990" (change)="onSelectionOnway()"></td>
-                  <td>IndiGo</td>
-                  <td>2990</td>
-                </tr>
-                <tr>
-                  <td><input type="radio" [(ngModel)]='bookFlight.onward_flight_rate' name="onwardFlightRate" value="AirIndia 1900" (change)="onSelectionOnway()"></td>
-                  <td>Air India</td>
-                  <td>1900</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="col-6">
-            <small>Return Flight Ticket Rate :</small>
-            <table class="table" id="dataTable">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Airline</th>
-                  <th scope="col">Price</th>
-          
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><input type="radio" [(ngModel)]='bookFlight.return_flight_rate' name="returnFlightRate" value="IndiGo 1990" [disabled] ="typeradio1.checked == true" (change)="onSelectionReturnTicket()"></td>
-                  <td>IndiGo</td>
-                  <td>1990</td>
-                </tr>
-                <tr>
-                  <td><input type="radio" [(ngModel)]='bookFlight.return_flight_rate' name="returnFlightRate" value="AirIndia 1500" [disabled] ="typeradio1.checked == true" (change)="onSelectionReturnTicket()"></td>
-                  <td>Air India</td>
-                  <td>1500</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+        <div class="m-2 form-group">
+        <small class="ms-2">Select Onward Ticket Rate</small>
+        <select style="margin-top: 0.5%;" (change)="onSelectionOnway()" [(ngModel)]='bookFlight.onward_flight_rate' name="onward_flight_rate" class="form-control item" id="onward_flight_rate">
+	      	<option *ngFor="let ticket of onwardTicketPrice" value={{ticket.ticket_price}}>{{ticket.ticket_type}} - Rate : Rs {{ticket.ticket_price}} </option>
+        </select>
+        </div>
+        <div class="m-2 form-group">
+        <small class="ms-2">Select Return Ticket Rate</small>
+        <select style="margin-top: 0.5%;" (change)="onSelectionReturnTicket()" [(ngModel)]='bookFlight.return_flight_rate' name="return_flight_rate" class="form-control item" id="return_flight_rate">
+	      	<option *ngFor="let ticket of returnTicketPrice" value={{ticket.ticket_price}}>{{ticket.ticket_type}} - Rate : Rs {{ticket.ticket_price}} </option>
+        </select>
         </div>
         <div class="ms-2 form-group">
           <small class="ms-2">Onward Trip Meal : </small>
           <select style="margin-top: 0.5%;" name="onward_meal" [(ngModel)]='bookFlight.onward_meal' id="onwardMeal" class="form-select item">
-            <option value="">Select the meal...</option>
-            <option value='Lunch Veg'>Lunch Veg</option>
-            <option value='Breakfast-Lunch Veg'>Breakfast-Lunch Veg</option>
-            <option value='Lunch Non-Veg'>Lunch Non-Veg</option>
-            <option value='Breakfast-Lunch Non-Veg'>Breakfast-Lunch Non-Veg</option>
+            <option value='None'>None</option>
+            <option value='Veg'>Breakfast-Lunch Veg</option>
+            <option value='Non-Veg'>Non-Veg</option>
           </select>
         </div>
         <div class="m-2 form-group">
           <small class="ms-2">Return Trip Meal : </small>
           <select style="margin-top: 0.5%;" name="return_meal" [(ngModel)]='bookFlight.return_meal' id="returnMeal" class="form-select item">
-            <option value="">Select the meal...</option>
-            <option value='Lunch Veg'>Lunch Veg</option>
-            <option value='Breakfast-Lunch Veg'>Breakfast-Lunch Veg</option>
-            <option value='Lunch Non-Veg'>Lunch Non-Veg</option>
-            <option value='Breakfast-Lunch Non-Veg'>Breakfast-Lunch Non-Veg</option>
-            </select>
+            <option value='None'>None</option>
+            <option value='Veg'>Breakfast-Lunch Veg</option>
+            <option value='Non-Veg'>Non-Veg</option>
+          </select>
         </div>
         <div class="row ms-1">
           <div class="col-8 form-group">

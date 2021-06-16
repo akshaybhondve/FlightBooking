@@ -37,12 +37,13 @@ export class ManageFlightComponent implements OnInit {
     })
   }
 
-  getScheduleForm(airline_name:string,fromLocation:string,toLocation:string){
+  getScheduleForm(airline_name:string,fromLocation:string,toLocation:string,flight_id:number){
     this.scheduleFlight.airline_name=airline_name;
-    this.scheduleFlight.from_location=fromLocation;
-    this.scheduleFlight.to_location=toLocation;
+    this.scheduleFlight.fromLocation=fromLocation;
+    this.scheduleFlight.toLocation=toLocation;
+    this.scheduleFlight.flight_id=flight_id;
     this.route.navigate(['/schedule-flight'], { queryParams: {airline_name : airline_name,
-      fromLocation:fromLocation,toLocation:toLocation} });
+      fromLocation:fromLocation,toLocation:toLocation,flight_id:flight_id} });
   }
 
 }

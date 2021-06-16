@@ -1,4 +1,3 @@
-
 <app-admin-navbar class="commonBackground"></app-admin-navbar>
 <body class="p-2 commonBackground">
 <div class="container bg-light">
@@ -27,7 +26,7 @@
           <td>{{flight.fromLocation}}</td>
           <td>{{flight.toLocation}}</td>
           <td class="actionButton">
-                <button class="btn btn-primary aM" (click)="getScheduleForm(flight.airline_name,flight.fromLocation,flight.toLocation)" href="/schedule-flight">
+                <button class="btn btn-primary aM" (click)="getScheduleForm(flight.airline_name,flight.fromLocation,flight.toLocation,flight.flight_id)" href="/schedule-flight">
                   Schedule Flight</button>
           </td>
         </tr>

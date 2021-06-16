@@ -24,7 +24,6 @@ export class LoginComponent implements OnInit {
     this.registrationService.loginUserFromRemote(this.user).subscribe(
       data=>{
         console.log("response received");
-        alert(data.isAdmin);
         if(data.isAdmin){
           this.route.navigate(['/admin'])
         }else{
