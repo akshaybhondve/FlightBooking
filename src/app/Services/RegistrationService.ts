@@ -3,7 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from 'rxjs';
 import { User } from "../Entity/User";
 
-const BASE_URL="http://localhost:9090/"
+const BASE_URL="http://ec2-100-26-157-235.compute-1.amazonaws.com:8961/FlightBookingAdmin/"
 
 @Injectable()
 export default class RegistrationService{

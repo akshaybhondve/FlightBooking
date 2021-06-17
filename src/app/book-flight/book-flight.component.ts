@@ -6,6 +6,7 @@ import Flight from '../Entity/Flight';
 import ScheduleFlight from '../Entity/ScheduleFlight';
 import Ticket from '../Entity/Ticket';
 import BookFlightService from '../Services/BookFlightService';
+import DiscountService from '../Services/DiscountService';
 import FlightService from '../Services/FlightService';
 import ScheduleFlightService from '../Services/ScheduleFlightService';
 import TicketService from '../Services/TicketService';
@@ -17,7 +18,7 @@ import TicketService from '../Services/TicketService';
 })
 export class BookFlightComponent implements OnInit {
 
-  constructor(private scheduleFlightService:ScheduleFlightService,private ticketService:TicketService,private bookFlightService:BookFlightService,private flightService:FlightService) { }
+  constructor(private discountService: DiscountService, private scheduleFlightService:ScheduleFlightService,private ticketService:TicketService,private bookFlightService:BookFlightService,private flightService:FlightService) { }
   
   bookFlight:BookFlight = new BookFlight();
   discount:Discount = new Discount();
@@ -34,7 +35,7 @@ export class BookFlightComponent implements OnInit {
   }
 
   getOnwardScheduleFlight(fromLocation:string, toLocation:string){
-    const promise = this.bookFlightService.getScheduleFlight(fromLocation,toLocation);
+    const promise = this.scheduleFlightService.getScheduleFlight(fromLocation,toLocation);
     promise.subscribe((response)=>{
       this.onwards = response as ScheduleFlight[];
       if (this.onwards.length === 0) 
@@ -48,7 +49,7 @@ export class BookFlightComponent implements OnInit {
   }
 
   getReturnScheduleFlight(fromLocation:string, toLocation:string){
-    const promise = this.bookFlightService.getScheduleFlight(fromLocation,toLocation);
+    const promise = this.scheduleFlightService.getScheduleFlight(fromLocation,toLocation);
     promise.subscribe((response)=>{
       this.returns = response as ScheduleFlight[];
       if (this.returns.length === 0) 
@@ -183,12 +184,13 @@ getReturnFlightPricesR1(value:number){
 
   applyDiscount(discount:string){
     console.log("applying discount "+this.bookFlight.discount);
-    const promise = this.bookFlightService.getDiscountByCode(this.bookFlight.discount);
+    const promise = this.discountService.getDiscountByCode(this.bookFlight.discount);
     promise.subscribe((response)=>{
       this.discount=response as Discount;
       this.totalRate = Number(this.bookFlight.return_flight_rate) + Number(this.bookFlight.onward_flight_rate);
-      this.final_flight_rate = (this.totalRate*(this.discount.discount_percentage/100));
+      this.final_flight_rate = (this.totalRate - (this.totalRate*(this.discount.discount_percentage/100)));
       this.bookFlight.final_flight_rate = this.final_flight_rate;
+      alert("Discount applied");
     },
     function(error){
       alert("No Discount Found...Retry !");

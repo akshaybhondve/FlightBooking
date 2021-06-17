@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import BookFlight from '../Entity/BookFlight';
 import BookFlightService from '../Services/BookFlightService';
 
@@ -9,8 +10,9 @@ import BookFlightService from '../Services/BookFlightService';
 })
 export class ManageBookingsComponent implements OnInit {
 
-  constructor(private bookFlightService:BookFlightService) { }
+  constructor(private route:Router,private bookFlightService:BookFlightService) { }
   bookFlights:BookFlight[]=[];
+  bookFlight:BookFlight=new BookFlight();
 
   ngOnInit(): void {
     const promise=this.bookFlightService.getAllFlightTickets();
@@ -18,6 +20,18 @@ export class ManageBookingsComponent implements OnInit {
       console.log();
       this.bookFlights=response as BookFlight[];
     })
+  }
+
+  updateBookingFlightStatus(booking_id:number,status:string){
+    const promoise = this.bookFlightService.updateBookingFlightStatus(booking_id,status);
+    promoise.subscribe((response)=>{
+      this.bookFlight = response as BookFlight;
+      alert("Flight has been "+this.bookFlight.status);
+      this.route.navigate(['/book-flight']);
+    },
+    function(error){
+      alert(error.message);
+    });
   }
   
 

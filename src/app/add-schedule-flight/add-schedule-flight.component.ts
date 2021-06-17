@@ -36,6 +36,23 @@ export class AddScheduleFlightComponent implements OnInit {
     });
   }
 
+  onOnwrdDate:any="";
+  getOnwardDate(){
+    var date:any = new Date();
+    var toDate:any = date.getDate();
+    if(toDate < 10){
+      toDate = '0'+toDate;
+    }
+
+    var month = date.getMonth()+1;
+    if(month < 10){
+      month = '0'+month;
+    }
+    var year = date.getFullYear();
+    this.onOnwrdDate = toDate+"-"+month+"-"+year;
+    this.schedule.flight_date = this.onOnwrdDate;
+  }
+
   clearForm(){
     this.schedule.airline_name="";
     this.schedule.fromLocation="";

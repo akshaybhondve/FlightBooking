@@ -60,7 +60,7 @@
           <small class="ms-2">Onward Trip Meal : </small>
           <select style="margin-top: 0.5%;" name="onward_meal" [(ngModel)]='bookFlight.onward_meal' id="onwardMeal" class="form-select item">
             <option value='None'>None</option>
-            <option value='Veg'>Breakfast-Lunch Veg</option>
+            <option value='Veg'>Veg</option>
             <option value='Non-Veg'>Non-Veg</option>
           </select>
         </div>
@@ -68,7 +68,7 @@
           <small class="ms-2">Return Trip Meal : </small>
           <select style="margin-top: 0.5%;" name="return_meal" [(ngModel)]='bookFlight.return_meal' id="returnMeal" class="form-select item">
             <option value='None'>None</option>
-            <option value='Veg'>Breakfast-Lunch Veg</option>
+            <option value='Veg'>Veg</option>
             <option value='Non-Veg'>Non-Veg</option>
           </select>
         </div>
@@ -87,16 +87,13 @@
           <input type="text" name="return_seat" [(ngModel)]='bookFlight.return_seat' placeholder="Enter Return Seat" class="form-control item" id="returnSeat">
         </div>
         <div class="m-2 form-group">
-          <small class="ms-2">Final Flight Ticket Rate :</small> {{totalRate}}
-          <input type="text" style="margin-top: 0.5%;" name="final_flight_rate" value="{{final_flight_rate}}" [(ngModel)]='bookFlight.final_flight_rate' class="form-control item" id="finalFlightRate">
+          <small class="ms-2">Final Flight Ticket Rate :</small>
+          <input type="text" readonly style="margin-top: 0.5%;" name="final_flight_rate" value="{{final_flight_rate}}" [(ngModel)]='bookFlight.final_flight_rate' class="form-control item" id="finalFlightRate">
         </div>
         <div class="m-2 form-group">
-          <button (click)="saveTicket()" class="btn btn-primary c-button">Checkout</button>
+          <button (click)="saveTicket();clearForm()" href="/manage-bookings" class="btn btn-primary c-button">Checkout</button>
         </div>
       </form>
     </div>
 </div>
-<script type="text/javascript">
-  $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
-</script> 
 </body>

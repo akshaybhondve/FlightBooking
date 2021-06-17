@@ -9,6 +9,7 @@ export default class ScheduleFlight{
     no_of_businessseat!:number;
     no_of_firstseat!:number;
     no_of_economyseat!:number;
+    status:string="Scheduled";
 
 
 } 

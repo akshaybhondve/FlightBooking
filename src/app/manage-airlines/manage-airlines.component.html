@@ -1,12 +1,13 @@
-<app-admin-navbar></app-admin-navbar>
-<div class="container p-2 bg-light border">
-  <div class="row">
-    <div class="col-1"></div>
-    <div class="col-8 pull-left titleCenter"><h3>Manage Airlines</h3></div>
-    <div class="col-3 pull-right">
-      <button class="btn btn-primary m-2"><a class="fs-6 text-light text-decoration-none" routerLink="/add-airline">Add New Airline</a></button>
-      <button class="btn btn-primary m-2"><a class="fs-6 text-light text-decoration-none" routerLink="/add-ticket">Add Ticket</a></button>
-    </div>
+<app-admin-navbar class="commonBackground"></app-admin-navbar>
+<body class="p-2 commonBackground">
+  <div class="container bg-light">
+    <div class="row commonBackground">
+      <div class="col-1"></div>
+      <div class="col-7 pull-left titleCenter"><h3>Manage Airlines</h3></div>
+      <div class="col-4 pull-right">
+        <button class="btn btn-primary m-2"><a class="fs-6 text-light text-decoration-none" routerLink="/add-airline">New Airline</a></button>
+        <button class="btn btn-primary m-2"><a class="fs-6 text-light text-decoration-none" routerLink="/add-ticket">Add Ticket</a></button>
+      </div>
   </div>
 </div>
 <div class="container bg-light border">
@@ -18,7 +19,6 @@
         <th scope="col">Airline Name</th>
         <th scope="col">Contact</th>
         <th scope="col">Address</th>
-        <th scope="col">Action</th>
 
       </tr>
     </thead>
@@ -28,10 +28,6 @@
         <td>{{air.airline_name}}</td>
         <td>{{air.airline_contact}}</td>
         <td>{{air.airline_address}}</td>
-        <td class="actionButton">
-          <button class="btn btn-primary m-2">Update Airlines</button>
-
-        </td>
       </tr>
     </tbody>
   </table>

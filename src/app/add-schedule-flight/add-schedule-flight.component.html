@@ -27,7 +27,7 @@
 
       <small class="ms-2">Schedule Date</small>
       <div class="m-2 form-group">
-        <input type="date" style="margin-top: 0.5%;" name="flight_date"  [(ngModel)]="schedule.flight_date" 
+        <input type="date" style="margin-top: 0.5%;" min={{onOnwrdDate}} name="flight_date"  [(ngModel)]="schedule.flight_date" 
           class="item form-control" id="flight_date">
       </div>
       <div class="m-2 form-group">

@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import BookFlight from "../Entity/BookFlight";
-const BASE_URL="http://localhost:9090/api_v1/"
+const BASE_URL="http://ec2-100-26-157-235.compute-1.amazonaws.com:8961/FlightBookingUser/api_v1/"
 
 @Injectable()
 export default class BookFlightService{
@@ -16,13 +16,8 @@ export default class BookFlightService{
         return this.http.post(BASE_URL+"save-booking",ticket)
     }
 
-    getDiscountByCode(code:string) {
-        console.log(code);
-        return this.http.get(BASE_URL+`code-${code}`);
-    }
-
-    getScheduleFlight(fromLocation:string,toLocation:string){
-        return this.http.get(BASE_URL+`from_location-${fromLocation}`+`/to_location-${toLocation}`);
+    updateBookingFlightStatus(booking_id:number,status:string){
+        return this.http.get(BASE_URL+`update-flight-status/${booking_id}/${status}`);
     }
 
 }

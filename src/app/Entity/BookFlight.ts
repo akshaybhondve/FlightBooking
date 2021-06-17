@@ -1,4 +1,5 @@
 export default class BookFlight{
+    flightbooking_id!:number;
     flight_type:string="";
     from_location:string="";
     to_location:string="";
@@ -14,4 +15,5 @@ export default class BookFlight{
     onward_seat:string="";
     return_seat:string="";
     final_flight_rate!:number;
+    status:string="Scheduled";
 } 

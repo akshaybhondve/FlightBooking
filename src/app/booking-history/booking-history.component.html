@@ -13,7 +13,7 @@
           <th scope="col">From Location</th>
           <th scope="col">To Location</th>
           <th scope="col">Total Ticket Price</th>
-          <th scope="col">Action</th>
+          <th scope="col">Flight Status</th>
         </tr>
       </thead>
       <tbody>
@@ -21,10 +21,7 @@
           <td>{{ticket.from_location}}</td>
           <td>{{ticket.to_location}}</td>
           <td>{{ticket.final_flight_rate}}</td>
-          <td class="actionButton">
-                <button class="btn btn-primary aM">View</button>
-                <button class="btn btn-primary aM">Cancel</button>
-          </td>
+          <td>{{ticket.status}}</td>
         </tr>
       </tbody>
     </table>
